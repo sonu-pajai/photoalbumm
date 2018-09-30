@@ -1,0 +1,44 @@
+<div class="row">
+	<h4>User Name: <%=@user.name%></h4>
+	<h4>User EmailID: <%=@user.email%></h4>
+	<h2>Albums</h2> 
+</div>
+<div class="row">	
+<%@albums.each_with_index do |album,ind| %>	
+	
+	<div class="col-lg-6 col-md-6 col-xs-12 ">
+	  <div id="myCarousel<%=ind%>" class="carousel slide" data-ride="carousel">
+	    <!-- Indicators -->
+	    <ol class="carousel-indicators">
+	    	<%get_photos(album).each_with_index do |photo,index|%>
+		      <li data-target="#myCarousel<%=ind%>" data-slide-to="<%=index%>" class="<%= 'active' if index==0%>"></li>
+		    <%end%>
+	    </ol>
+	    <!-- Wrapper for slides -->
+	    <div class="carousel-inner">
+	    	<%get_photos(album).each_with_index do |photo, i|%>
+	      <div class="item <%= 'active' if i==0%>">
+	        <img src="<%=photo.image.url%>" alt="<%=photo.tagline%>" style="width:100%;">
+	      </div>
+				<%end%>
+	    </div>
+
+	    <!-- Left and right controls -->
+	    <a class="left carousel-control" href="#myCarousel<%=ind%>" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left"></span>
+	      <span class="sr-only">Previous</span>
+	    </a>
+	    <a class="right carousel-control" href="#myCarousel<%=ind%>" data-slide="next">
+	      <span class="glyphicon glyphicon-chevron-right"></span>
+	      <span class="sr-only">Next</span>
+	    </a>
+	  </div>
+	</div>
+
+<%end%>
+</div>
+<div class="row">	
+	<div class="col-lg-12 ">
+		<%= will_paginate @albums %>
+	</div>
+</div>

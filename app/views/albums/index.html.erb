@@ -1,0 +1,41 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-md-2">       
+        <a href="<%=new_album_path%>" class="btn btn-primary"><i class="fa fa-plus"></i> Album</a>     
+      </div>    
+    </div>  
+     <!-- /.row --> 
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>User</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @albums.each do |album| %>
+            <tr>
+              <td><%= album.name %></td>
+              <td><%= album.user.name %></td>
+              <td>
+                <%=link_to '', edit_album_path(album), :class => "fa fa-pencil-square-o fa-1x " %>&nbsp;|
+                <%=link_to '', album, :class => "fa fa-trash-o fa-1x", method: :delete, data: { confirm: 'Are you sure?' } %>&nbsp;|
+                <%=link_to "Photos (#{album.photos.count})",  album_photos_path(album),:title =>"Photos"%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
+        <%= will_paginate @albums %>
+      </div>
+    </div>   
+  <!-- /.container-fluid -->
+  </div>
+</div>
+
+
+
