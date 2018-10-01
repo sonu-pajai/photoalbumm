@@ -18,8 +18,11 @@ home page (http://localhost:3000/) will display latest 25 images
 
 below all the photos there is a owner's name link which will redirect to userprofile page 
 ex. http://localhost:3000/userprofile/1
-album creation page (http://localhost:3000/albums) will display current user's ablums , 10 records per page
-on albums listing page their is a link which will redirect you to ablums -> photo where you can view/add photo to a specific album
+album creation page (http://localhost:3000/albums) will display current user's ablums , 
+10 records per page
+
+on albums listing page their is a link which will redirect you to ablums -> photo 
+where you can view/add photo to a specific album
 
 
 
