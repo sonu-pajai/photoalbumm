@@ -1,0 +1,10 @@
+
+<div class="row">	
+	<h1> All Albums</h1>
+	<%= render'albums', albums: @albums %>
+</div>
+<div class="row">	
+	<div class="col-lg-12 ">
+		<%= will_paginate @albums %>
+	</div>
+</div>

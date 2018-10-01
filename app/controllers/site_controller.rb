@@ -5,6 +5,10 @@ class SiteController < ApplicationController
     @photos= Photo.order("created_at desc").limit(25)
   end
 
+  def album_listing
+    @albums= Album.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
+  end
+
   def userprofile
     @user=User.find_by_id(params[:id])
     unless @user
