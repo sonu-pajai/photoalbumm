@@ -24,5 +24,7 @@ album creation page (http://localhost:3000/albums) will display current user's a
 on albums listing page their is a link which will redirect you to ablums -> photo 
 where you can view/add photo to a specific album
 
+http://localhost:3000/album-listing will display all the albums 
+
 
 
