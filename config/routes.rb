@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
 
   get '/userprofile/:id', to: 'site#userprofile'
+  get '/album-listing', to: 'site#album_listing'
 
 end
